@@ -40,6 +40,10 @@ class CartPage extends Component
         $this->dispatch('update-cart-count', total_count: count($this->cart_items))->to(Navbar::class);
     }
 
+    public function checkout()
+    {
+        return redirect()->route('checkout');
+    }
 
     public function render()
     {

@@ -31,8 +31,8 @@ Route::get('/products/{slug}', ProductDetailPage::class)->name('product-detail')
 Route::middleware('guest')->group(function () {
     Route::get('/register', RegisterPage::class)->name('register');
     Route::get('/login', LoginPage::class)->name('login');
-    Route::get('/forgot', ForgotPasswordPage::class)->name('forgot-password');
-    Route::get('/reset', ResetPasswordPage::class)->name('reset-password');
+    Route::get('/forgot', ForgotPasswordPage::class)->name('password.request');
+    Route::get('/reset/{token}', ResetPasswordPage::class)->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {
@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/success', SuccessPage::class)->name('success');
     Route::get('/cancel', CancelPage::class)->name('cancel');
 
-    Route::get('/logout', function () {
+    Route::post('/logout', function () {
         auth()->logout();
         return redirect('/');
     })->name('logout');
