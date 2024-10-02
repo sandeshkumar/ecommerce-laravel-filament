@@ -49,7 +49,7 @@
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><span class="{{$payment_status}} py-1 px-3 rounded text-white shadow">{{ucfirst($order->payment_status)}}</span></td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ Number::currency($order->grand_total, 'INR') }}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                    <a href="/my-order/{{$order->id}}" class="bg-slate-600 text-white py-2 px-4 rounded-md hover:bg-slate-500">View Details</a>
+                    <a href="/my-orders/{{$order->id}}" class="bg-slate-600 text-white py-2 px-4 rounded-md hover:bg-slate-500">View Details</a>
                   </td>
                 </tr>
                 @endforeach
